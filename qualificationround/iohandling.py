@@ -13,8 +13,9 @@ def parse_problem(file_path):
 
 def write_solution(file_path, solution):
     file_name, ext = os.path.splitext(os.path.basename(file_path))
-    new_name = 'output_{}_{}.txt'.format(os.getlogin().lower(), file_name)
-    out_dir = 'solutions'
+    new_name = '{}.out'.format(file_name)
+
+    out_dir = 'solutions_{}'.format(os.getlogin().lower())
     os.makedirs(out_dir, exist_ok=True)
 
     with open(os.path.join(out_dir, new_name), 'w') as file:
