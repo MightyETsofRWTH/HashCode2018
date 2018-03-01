@@ -16,9 +16,10 @@ def parse_problem(file_path):
         raise ValueError("Invalid file path!")
 
     with open(file_path, 'r') as file:
-        pass
+        rows, columns, vehicles, rides_count, bonus, steps = num_list(next(file))
+        rides = [num_list(row) for row in file]
 
-    return None
+    return rows, columns, vehicles, rides_count, bonus, steps, rides
 
 
 def write_solution(file_path, solution):
@@ -30,4 +31,5 @@ def write_solution(file_path, solution):
 
     with open(os.path.join(out_dir, new_name), 'w') as file:
         for line in solution:
-            file.write('')
+            file.write(line)
+            file.write('\n')
