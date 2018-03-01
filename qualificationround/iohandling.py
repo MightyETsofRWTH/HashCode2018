@@ -1,6 +1,16 @@
 import os
 
 
+def num_list(string):
+    """
+    "1 2 3 4" -> [1, 2, 3, 4]
+
+    :param string: string
+    :return: list of the ints in the string
+    """
+    return list(map(int, string.strip().split()))
+
+
 def parse_problem(file_path):
     if not os.path.isfile(file_path):
         raise ValueError("Invalid file path!")
